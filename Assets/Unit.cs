@@ -81,7 +81,8 @@ public class Unit : MonoBehaviour
 
 
     private void proc() //스탯 처리 등
-    {                
+    {
+        state = statename.idle;
         if(canact)
         {
             if(moving && speed > 0)
@@ -108,6 +109,7 @@ public class Unit : MonoBehaviour
                 x += xs;
                 y += ys;
                 moving = false;
+                state = statename.move;
             }
 
         }
