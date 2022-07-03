@@ -180,6 +180,7 @@ GameObject:
   - component: {fileID: 85638811}
   - component: {fileID: 85638812}
   - component: {fileID: 85638813}
+  - component: {fileID: 85638814}
   m_Layer: 0
   m_Name: unit1
   m_TagString: Unit
@@ -292,6 +293,30 @@ MonoBehaviour:
   f: []
   s: []
   u: {fileID: 0}
+--- !u!114 &85638814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 85638809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e59731b3ea0e06d4193ddd46833cf54a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
+  delay: 30
+  time: 3
+  interval: 120
+  active: 1
+  d: 0
+  t: 0
+  it: 0
+  i: 01000000
+  f: []
+  s: []
+  u: {fileID: 85638811}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -387,8 +412,9 @@ GameObject:
   - component: {fileID: 778607270}
   - component: {fileID: 778607273}
   - component: {fileID: 778607272}
+  - component: {fileID: 778607274}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: bullet1
   m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -439,6 +465,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e59731b3ea0e06d4193ddd46833cf54a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
+  delay: 0
+  time: 0
+  interval: 0
+  active: 0
+  d: 0
+  t: 0
+  it: 0
+  i: 
+  f: []
+  s: []
+  u: {fileID: 0}
 --- !u!212 &778607273
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -489,6 +527,30 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &778607274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 778607269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e59731b3ea0e06d4193ddd46833cf54a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
+  delay: 0
+  time: 1
+  interval: 0
+  active: 0
+  d: 0
+  t: 0
+  it: 0
+  i: 01000000
+  f: []
+  s: []
+  u: {fileID: 0}
 --- !u!1 &1511323926
 GameObject:
   m_ObjectHideFlags: 0

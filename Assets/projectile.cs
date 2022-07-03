@@ -31,8 +31,17 @@ public class projectile : MonoBehaviour
         }
 
 
-
+        if(speed > 0)
+        {
+            float deltaspeed = Time.deltaTime * speed;
+            x += Mathf.Cos(direction) * deltaspeed;
+            y += Mathf.Sin(direction) * deltaspeed;
+        }
 
         gameObject.transform.position = new Vector3(x, y, 0);
+
+
+        //충돌 판정
+
     }
 }

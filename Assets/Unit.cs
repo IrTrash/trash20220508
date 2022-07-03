@@ -82,6 +82,11 @@ public class Unit : MonoBehaviour
 
     private void proc() //스탯 처리 등
     {
+        if(hp <= 0)
+        {
+            Destroy(this.gameObject);
+        }
+
         state = statename.idle;
         if(canact)
         {
