@@ -9,7 +9,7 @@ public class system : MonoBehaviour
 
     astar _astar;
 
-
+    public Unit testunit1, testunit2;    
 
     private void Start()
     {
@@ -31,6 +31,8 @@ public class system : MonoBehaviour
             }
         }
 
+        Debug.Log(testunit1 + " vs " + testunit2);
+        Debug.Log(testunit1 == testunit2);
     }
 
 

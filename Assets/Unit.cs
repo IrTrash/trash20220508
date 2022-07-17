@@ -54,8 +54,8 @@ public class Unit : MonoBehaviour
 
 
 
-    public int maxhp = 10, hp = 10;
-    public float x, y, z = 0, speed = 1;
+    public int maxhp = 10, hp = 10 , team = 1;
+    public float x, y, z = 0, speed = 1 , colsize = 0.5f;
     public statename state = statename.idle;
     public bool canact = true, moving = false;
     public direc direction = 0;
@@ -68,6 +68,15 @@ public class Unit : MonoBehaviour
             rb = gameObject.AddComponent<Rigidbody2D>();
             rb.bodyType = RigidbodyType2D.Kinematic;
         }
+
+        //충돌 판정을 위함
+        BoxCollider2D cd = gameObject.GetComponent<BoxCollider2D>();
+        if(cd == null)
+        {
+            cd = gameObject.AddComponent<BoxCollider2D>();
+            cd.size = new Vector2(colsize, colsize);
+        }
+
     }
 
     private void FixedUpdate()
