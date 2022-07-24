@@ -77,6 +77,7 @@ public class uniteffect : MonoBehaviour
         uniteffect buf = dest.gameObject.AddComponent<uniteffect>();
         buf.copy(this);
         buf.u = dest;
+        buf.active = true;
         return true;
     }
 

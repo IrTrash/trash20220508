@@ -33,6 +33,9 @@ public class system : MonoBehaviour
 
         Debug.Log(testunit1 + " vs " + testunit2);
         Debug.Log(testunit1 == testunit2);
+
+
+        
     }
 
 
