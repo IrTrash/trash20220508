@@ -57,6 +57,7 @@ public class Unit : MonoBehaviour
     public int maxhp = 10, hp = 10 , team = 1;
     public float x, y, z = 0, speed = 1 , colsize = 0.5f;
     public statename state = statename.idle;
+    public int statetime = 0;
     public bool canact = true, moving = false;
     public direc direction = 0;
 
@@ -96,7 +97,12 @@ public class Unit : MonoBehaviour
             Destroy(this.gameObject);
         }
 
-        state = statename.idle;
+        if(statetime-- <= 0)
+        {
+            state = statename.idle;
+            statetime = 0;
+        }
+        
         if(canact)
         {
             if(moving && speed > 0)
@@ -124,6 +130,7 @@ public class Unit : MonoBehaviour
                 y += ys;
                 moving = false;
                 state = statename.move;
+                statetime = 1;
             }
 
         }

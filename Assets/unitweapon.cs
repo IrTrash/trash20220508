@@ -40,6 +40,12 @@ public class unitweapon : MonoBehaviour
                         createproj(x, y);
                         state = statename.cooldown;
                         statetime = cooldown;
+
+                        if(owner != null)
+                        {
+                            owner.state = Unit.statename.delay;
+                            owner.statetime = delay;
+                        }
                     }
                 }
                 break;
@@ -84,7 +90,6 @@ public class unitweapon : MonoBehaviour
                 prj.x = owner.x;
                 prj.y = owner.y;
                 prj.direction = projectile.getdirec_2points(prj.x, prj.y, dx, dy);
-                Debug.Log("proj created : " + prj.x + " , " + prj.y);
             }
             else //자동으로 찾아서 할까? 뭔가 불필요한 짓을 하는거같아서 일단 보류
             {
@@ -108,6 +113,13 @@ public class unitweapon : MonoBehaviour
 
         state = statename.charge;
         statetime = charge;
+
+        if(owner != null)
+        {
+            owner.state = Unit.statename.charge;
+            owner.statetime = charge;
+        }
+
         x = dx;
         y = dy;
         return true;
