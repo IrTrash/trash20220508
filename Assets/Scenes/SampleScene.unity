@@ -227,6 +227,7 @@ MonoBehaviour:
   speed: 1
   colsize: 0.5
   state: 0
+  statetime: 0
   canact: 1
   moving: 0
   direction: 0
@@ -337,7 +338,13 @@ MonoBehaviour:
   charge: 10
   delay: 10
   cooldown: 10
-  pdatalistt: []
+  nominalrange: 2
+  owner: {fileID: 0}
+  projobjectlist: []
+  state: 1
+  statetime: 0
+  x: 0
+  y: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -462,6 +469,8 @@ GameObject:
   - component: {fileID: 2123903835}
   - component: {fileID: 2123903834}
   - component: {fileID: 2123903833}
+  - component: {fileID: 2123903832}
+  - component: {fileID: 2123903831}
   m_Layer: 0
   m_Name: unit1 (1)
   m_TagString: Unit
@@ -469,6 +478,48 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &2123903831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2123903830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd13c9b6bf6978648b51cad1b618dec4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 5
+  i: 00000000
+  f:
+  - 6
+  - 2
+  s: []
+  u: {fileID: 0}
+--- !u!114 &2123903832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2123903830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1de9c1c3fa2ed5344a89a2ee03646644, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charge: 100
+  delay: 100
+  cooldown: 100
+  nominalrange: 2
+  owner: {fileID: 0}
+  projobjectlist:
+  - {fileID: 2334726798761830755, guid: c7cc617a4f933bb4ea771208f299bf7b, type: 3}
+  state: 1
+  statetime: 0
+  x: 0
+  y: 0
 --- !u!212 &2123903833
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -542,6 +593,7 @@ MonoBehaviour:
   speed: 1
   colsize: 0.5
   state: 0
+  statetime: 0
   canact: 1
   moving: 0
   direction: 0
@@ -625,6 +677,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: bullet1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2334726798761830755, guid: c7cc617a4f933bb4ea771208f299bf7b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7cc617a4f933bb4ea771208f299bf7b, type: 3}
