@@ -251,6 +251,72 @@ public class Unit : MonoBehaviour
                             
                     }
                     break;
+
+                case action.typename.useweapon:
+                    {
+                        if(!currentaction.started) //int : 사용할 wp(리스트의 인덱스) , float : 대상 위치
+                        {
+                            if(currentaction.i == null || currentaction.f == null)
+                            {
+                                complete = true;
+                                break;
+                            }
+                            else if(currentaction.f.Length < 2)
+                            {
+                                complete = true;
+                                break;
+                            }
+
+                            int[] vs = new int[] { currentaction.i[0], 0 };
+                            currentaction.i = vs;
+                        }
+                        else //시전할때까지 완료하지않고 유닛의 state를 시전관련으로 유지, 다른걸로 바뀌면(스턴 등) 캔슬
+                        {
+                            if(state == statename.charge || state == statename.cast)
+                            {
+                                complete = false;
+                                break;
+                            }
+                            else
+                            {
+                                if(currentaction.i[1] == 0)
+                                {
+                                    unitweapon[] wps = gameObject.GetComponents<unitweapon>();
+                                    if (wps == null)
+                                    {
+                                        complete = true;
+                                        break;
+                                    }
+                                    else if (wps.Length <= currentaction.i[0])
+                                    {
+                                        complete = true;
+                                        break;
+                                    }
+
+                                    unitweapon wp = wps[currentaction.i[0]];
+
+                                    if(wp.launch(currentaction.f[0],currentaction.f[1]))
+                                    {
+                                        currentaction.i[1] = 1;
+                                    }
+                                    else
+                                    {
+                                        complete = false;
+                                        break;
+                                    }
+                                    
+                                }
+                                else
+                                {
+                                    complete = true;
+                                    break;
+                                }
+                            }
+
+                                                                                   
+                        }
+                    }
+                    break;
             }
 
             if(!currentaction.started)

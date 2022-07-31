@@ -29,6 +29,8 @@ public class projectile : MonoBehaviour
             rb = gameObject.AddComponent<Rigidbody2D>();
             rb.bodyType = RigidbodyType2D.Kinematic;            
         }
+
+        Debug.Log(x + " : " + y);
     }
 
 
@@ -46,16 +48,25 @@ public class projectile : MonoBehaviour
             return;
         }
 
-
-        if (speed > 0)
-        {
-            float deltaspeed = Time.deltaTime * speed;
+        
+        float dt = Time.deltaTime;
+        if (speed > 0 && dt > 0)
+        {            
+            float deltaspeed = dt * speed;
             float xd = Mathf.Cos(direction), yd = Mathf.Sin(direction);
-            x += deltaspeed * xd / (xd + yd);
-            y += deltaspeed * yd / (xd + yd);
+            x += deltaspeed * xd / (Mathf.Abs(xd) + Mathf.Abs(yd));
+            y += deltaspeed * yd / (Mathf.Abs(xd) + Mathf.Abs(yd));
         }
 
-        gameObject.transform.position = new Vector3(x, y, 0);
+        try
+        {            
+            gameObject.transform.position = new Vector3(x, y, 0);
+        }
+        catch
+        {
+            Debug.LogError(x + " , " + y + " , " + speed);
+        }
+        
         updatedirec();
 
         //충돌 판정        
@@ -147,6 +158,10 @@ public class projectile : MonoBehaviour
 
         return r.ToArray();
     }
+
+
+    public static float getdirec_2points(float x1, float y1, float x2, float y2) => Mathf.Atan2(y2 - y1, x2 - x1);
+    
 }
 
 
