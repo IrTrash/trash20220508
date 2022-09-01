@@ -9,7 +9,11 @@ public class system : MonoBehaviour
 
     astar _astar;
 
-    public Unit testunit1, testunit2;    
+    public Unit testunit1, testunit2;
+
+
+    public int time_second = 0;
+   
 
     private void Start()
     {
@@ -34,19 +38,29 @@ public class system : MonoBehaviour
         Debug.Log(testunit1 + " vs " + testunit2);
         Debug.Log(testunit1 == testunit2);
 
-
-        
+        StartCoroutine("countsec");
     }
 
 
+    private void OnDestroy()
+    {
+        StopAllCoroutines();
+    }
 
 
     private void FixedUpdate()
     {
-        
+      
     }
 
-
+    IEnumerator countsec()
+    {
+        for(; ; )
+        {
+            yield return new WaitForSeconds(1f);
+            time_second += 1;
+        }        
+    }
 
 
     public static int tileval(float f)
@@ -77,5 +91,6 @@ public class system : MonoBehaviour
     public static float centerdistance_y(float y) => tiley(y) - y;
 
     public static bool isin(float x, float y, float x1, float y1, float x2, float y2) => (x1 - x) * (x2 - x) <= 0 && (y1 - y) * (y2 - y) <= 0;
-    
+ 
+
 }
